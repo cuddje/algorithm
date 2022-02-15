@@ -1,0 +1,5 @@
+env = Environment(CPPPATH='.',
+                  LIBS=[],
+                  CPPDEFINES=[],
+                  CXXFLAGS='-std=c++11')
+env.Program('test', Glob('*.cpp'))
