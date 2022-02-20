@@ -1,4 +1,4 @@
-env = Environment(CPPPATH='.',
+env = Environment(CPPPATH=['.', '..'],
                   LIBS=[],
                   CPPDEFINES=[],
                   CXXFLAGS='-std=c++11')

@@ -1,11 +1,7 @@
-#include <stdio.h>
-#include <iostream>
-#include <stdlib.h>
-#include <iostream>
+#include "common.h"
 #include "quicksort.h"
+
 using namespace std;
-
-
 
 int main(int argc, char* argv[])
 {
@@ -25,5 +21,6 @@ int main(int argc, char* argv[])
     {
         cout << v << endl;
     }
+
     return 0;
 }
