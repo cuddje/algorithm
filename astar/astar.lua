@@ -75,8 +75,7 @@ while (#open_list ~= 0) do
       local next_node = find_from_open_list(open_list, id)
       if next_node ~= nil then  --已经在开放列表中
         --检查经过这个节点到达 是否F值会更低
-        local F = current.F + 10
-        if F < next_node.F then
+        if current.G + 10 < next_node.G then
           next_node.parent = current
           next_node.G = current.G + 10
           next_node.F = next_node.G + next_node.H
