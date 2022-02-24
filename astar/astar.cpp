@@ -34,11 +34,13 @@ typedef struct Position{
 }Position;
 
 typedef struct Node{
-  Node(){}
   Node(const Position& pos)
   {
     this->pos = pos;
     this->id = pos.y * width + pos.x;
+    H = 0;
+    G = 0;
+    F = 0;
   }
 
   void setH(const Position& pos){
@@ -56,18 +58,37 @@ typedef struct Node{
   int id;
   Position pos;
   Node* parent;
+
+  inline bool operator<(Node b)
+  {
+    return F < b.F;
+  }
 }Node, *pNode;
 
 
+Node* crete_new_node(const Position& pos, vector<pNode>& vec, const Position& end){
+  auto node = new Node(pos);
+  node->setH(end);
+  vec.push_back(node);
+  return node;
+}
+
 int main(int argc, char* argv[])
 {
-  priority_queue<pNode, vector<pNode>, greater<pNode> > open_list;//开放列表
+  auto comp = [](pNode a, pNode b) { return *a < *b; };
+  priority_queue<pNode, vector<pNode>, decltype(comp) > open_list;//开放列表
   map<int, bool> close_list;                                      //关闭列表
   vector<pNode> node_list;
 
+  Position start(0,2);
+  Position end(9, 2);
+  open_list.push(crete_new_node(start, node_list, end));//起点加入开放列表
 
-
-
+  while(!open_list.empty())
+  {
+    auto current = open_list.top();
+    open_list.pop();
+  }
 
 
   //清理
