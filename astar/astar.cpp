@@ -68,7 +68,7 @@ typedef struct Node{
   Position pos;
   Node* parent;
 
-  // inline bool operator<(Node b)
+  // inline bool operator<(const Node& b)
   // {
   //   return F < b.F;
   // }
